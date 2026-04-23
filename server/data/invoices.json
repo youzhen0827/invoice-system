@@ -1,0 +1,51 @@
+{
+  "invoices": [
+    {
+      "id": "1",
+      "number": "AB12345678",
+      "date": "2025-12-15",
+      "amount": 350,
+      "store": "全聯福利中心",
+      "category": "飲食",
+      "items": "麵包、牛奶、雞蛋",
+      "isWinning": true,
+      "createdAt": "2025-12-15T10:30:00.000Z",
+      "prize": "特別獎"
+    },
+    {
+      "id": "2",
+      "number": "CD87654321",
+      "date": "2025-12-20",
+      "amount": 1200,
+      "store": "誠品書店",
+      "category": "購物",
+      "items": "書籍兩本",
+      "isWinning": false,
+      "createdAt": "2025-12-20T14:20:00.000Z",
+      "updatedAt": "2026-01-05T14:10:40.120Z"
+    },
+    {
+      "id": "3",
+      "number": "EF11223344",
+      "date": "2025-01-02",
+      "amount": 85,
+      "store": "7-11",
+      "category": "飲食",
+      "items": "咖啡、三明治",
+      "isWinning": false,
+      "createdAt": "2025-01-02T08:15:00.000Z",
+      "updatedAt": "2026-01-05T14:45:47.645Z"
+    },
+    {
+      "id": "4",
+      "number": "GH55667788",
+      "date": "2025-01-03",
+      "amount": 450,
+      "store": "家樂福",
+      "category": "購物",
+      "items": "日用品",
+      "isWinning": false,
+      "createdAt": "2025-01-03T16:45:00.000Z"
+    }
+  ]
+}
