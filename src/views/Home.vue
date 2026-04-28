@@ -1,3 +1,4 @@
+<!-- 首頁 -->
 <template>
   <div class="home">
     <div class="jumbotron bg-light p-5 rounded-3 mb-4">
@@ -107,7 +108,8 @@ export default {
         stats.value = response.data
 
         // 計算本月發票數
-        const currentMonth = new Date().toISOString().substring(0, 7)
+        const now = new Date()
+        const currentMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`
         if (response.data.monthStats[currentMonth]) {
           currentMonthCount.value = response.data.monthStats[currentMonth].count
         }
