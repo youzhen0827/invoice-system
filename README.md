@@ -1,63 +1,147 @@
-# 發票管理系統
+# 發票管理系統 💳
 
-> 網際網路程式設計期末專案
-> 使用 Vue + Bootstrap 5 + Node.js + Express 開發
+網際網路程式設計期末專案，以 Vue 3 + Node.js + Express 打造的前後端分離發票管理 Web App，提供發票記錄、自動對獎、統計分析等功能。
 
-## 📋 專案簡介
+---
 
-這是一個完整的發票管理系統，提供發票記錄、對獎、統計分析等功能，幫助使用者輕鬆管理消費發票。
+## 畫面截圖
 
-### 1.網站功能
+### 首頁
+![首頁](docs/screenshot-home.png)
 
-- **發票管理**：新增、編輯、刪除、查詢發票
-- **自動對獎**：輸入開獎號碼，自動比對所有發票
-- **統計分析**：視覺化圖表展示消費習慣
-- **單頁式應用**：頁面切換不需重新整理
+### 發票管理
+![發票管理](docs/screenshot-invoices.png)
 
+### 統計報表
+![統計報表](docs/screenshot-reports.png)
 
-### 2.所使用的前端Framework
+### 消費分類圖表
+![消費分類圖表](docs/screenshot-reports_2.png)
 
-- **框架**：Vue
-- **路由**：Vue Router
-- **UI框架**：Bootstrap 5
-- **圖表**：Chart.js
-- **HTTP客戶端**：Axios
-- **圖示**：Bootstrap Icons
+### 發票對獎
+![發票對獎](docs/screenshot-l...y_check.png)
 
+---
 
-### 3.網頁所使用的組件
+## 功能特色
 
-- **頁面元件**
-  > Home.vue: 系統首頁與統計摘要
-  > Invoices.vue: 發票管理頁面
-  > Reports.vue: 消費統計與圖表頁面
+- 新增、編輯、刪除、查詢發票記錄
+- 自動對獎：輸入開獎號碼，自動比對所有發票（支援特別獎、特獎、頭獎至六獎、增開六獎）
+- 統計分析：以 Chart.js 視覺化呈現消費分類圓餅圖與月份消費趨勢折線圖
+- 依發票期別（每兩個月一期）篩選統計資料
+- 單頁式應用（SPA）：頁面切換不需重新整理
+- 前後端分離架構：前端透過 Axios 呼叫 REST API
 
-- **功能元件**
-  > InvoiceCard.vue: 單張發票顯示元件
-  > InvoiceForm.vue: 新增 / 編輯發票表單
-  > LotteryCheck.vue: 發票對獎功能
+---
 
-- **共用模組**
-  > api.js: 使用Axios封裝後端API
-  > modal.js: 處理Bootstrap Modal關閉畫面清理
+## 技術棧
 
+**前端**
 
-### 4.資料儲存方式
+| 技術 | 說明 |
+|------|------|
+| Vue 3 | 前端框架 |
+| Vue Router | 單頁路由管理 |
+| Bootstrap 5 | UI 框架 |
+| Chart.js | 統計圖表 |
+| Axios | HTTP 客戶端，呼叫後端 API |
 
-- **Server端**：Node.js ＋ Express
-- **資料儲存格式**：JSON 檔案
-- **前後端分離架構**：Axios呼叫API
+**後端**
 
+| 技術 | 說明 |
+|------|------|
+| Node.js + Express | REST API 伺服器 |
+| JSON 檔案 | 資料持久化儲存 |
+| CORS | 跨域請求處理 |
 
+---
 
----------------------------------------
+## 專案架構
 
+```
+invoice-system/
+├── src/
+│   ├── views/
+│   │   ├── Home.vue          # 首頁與統計摘要
+│   │   ├── Invoices.vue      # 發票管理頁面
+│   │   └── Reports.vue       # 消費統計與圖表
+│   ├── components/
+│   │   ├── InvoiceCard.vue   # 單張發票顯示元件
+│   │   ├── InvoiceForm.vue   # 新增／編輯發票表單
+│   │   └── LotteryCheck.vue  # 發票對獎功能
+│   ├── services/
+│   │   └── api.js            # Axios 封裝後端 API
+│   ├── utils/
+│   │   └── modal.js          # Bootstrap Modal 清理
+│   ├── router/
+│   │   └── index.js          # Vue Router 路由設定
+│   ├── App.vue
+│   └── main.js
+├── server/
+│   ├── server.js             # Express 後端伺服器
+│   └── data/
+│       └── invoices.json     # 資料儲存檔案
+├── docs/                     # 截圖
+├── index.html
+├── vite.config.js
+└── package.json
+```
 
-## 專案啟動方式
+---
 
-### 1️⃣ 啟動後端 Server
-node server/server.js
+## 如何啟動
 
-### 2️⃣ 啟動前端 
+### 環境需求
+
+- Node.js 16 以上
+- npm
+
+### 安裝依賴
+
+```bash
+git clone https://github.com/youzhen0827/invoice-system.git
+cd invoice-system
 npm install
+```
+
+### 啟動後端
+
+```bash
+node server/server.js
+```
+
+後端運行於 `http://localhost:3000`
+
+### 啟動前端
+
+開啟新的終端機視窗：
+
+```bash
 npm run dev
+```
+
+前端運行於 `http://localhost:5173`
+
+---
+
+## API 端點
+
+| 方法 | 路徑 | 說明 |
+|------|------|------|
+| GET | `/api/invoices` | 取得所有發票 |
+| GET | `/api/invoices/:id` | 取得單一發票 |
+| POST | `/api/invoices` | 新增發票 |
+| PUT | `/api/invoices/:id` | 更新發票 |
+| DELETE | `/api/invoices/:id` | 刪除發票 |
+| POST | `/api/check-lottery` | 發票對獎 |
+| GET | `/api/invoices/stats/summary` | 取得統計資料 |
+
+---
+
+## 學習成果
+
+- 實作 Vue 3 Composition API 與元件化開發
+- 以 Vue Router 建立多頁面 SPA 架構
+- 設計 RESTful API 並以 Express 實作前後端分離
+- 整合 Chart.js 實現資料視覺化（圓餅圖、折線圖）
+- 實作完整的 CRUD 操作與台灣統一發票對獎邏輯
