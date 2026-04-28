@@ -19,7 +19,7 @@
 ![消費分類圖表](docs/screenshot-reports_2.png)
 
 ### 發票對獎
-![發票對獎](docs/screenshot-l...y_check.png)
+![發票對獎](docs/screenshot-lottery_check.png)
 
 ---
 
